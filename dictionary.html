@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #686de0;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+      padding: 50px 20px;
+      text-align: center;
+      max-width: 100%;
+      width: 800px;
+    }
+
+    h3 {
+      margin: 0;
+      opacity: 0.5;
+      letter-spacing: 2px;
+    }
+
+    .joke {
+      font-size: 30px;
+      letter-spacing: 1px;
+      line-height: 40px;
+      margin: 50px auto;
+      max-width: 600px;
+    }
+
+    .btn {
+      background-color: #9f68e0;
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+      padding: 14px 40px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn:focus {
+      outline: 0;
+    }
+  </style>
+  <title>一个基于JavaScript的简易字典</title>
+</head>
+
+<body>
+  <div class="container">
+    <form onsubmit="return false;">
+      <h3>一个基于JavaScript的简易字典</h3>
+      <h3>由于找不到词库，目前只支持apple，am,is,are,yyds,sb,center，if，Enoch，why，alan walker的查询</h3>
+      <h3>支持自动转换大小写</h3>
+      <div class="joke">
+        <input type="text" name="in" style="height:50px;width: 300px;@keyup.enter.native='dictionary()'" />
+      </div>
+      <input type="button" id="jokeBtn" class="btn" value="查找" onclick="dictionary();">
+      <p id="out"></p>
+    </form>
+  </div>
+
+  <script>
+    // .ajax({
+    //     url: "dict.json",//json文件位置
+    //     type: "post",
+    //     dataType: "json", //返回数据格式为json
+    //     success: function(dictionary) {//请求成功完成后要执行的方法
+    //         console.log(dictionary)
+    //     }
+    // })
+    //这里本来想用json的，但还没学，所以算了
+    function dictionary() {
+
+      let val = document.getElementsByName("in")[0].value;
+      //初始化字典(算了，手打几个单词进去吧)
+      //var arr1 = "coast海岸,side一边,beach海滩,central在中心的,crop庄稼,scenic景色优美的,queen 女王castle 城堡wine 葡萄酒culture 文化concert 音乐会wonderful 令人赞叹的harbour 港湾cable car 电缆车delicious 美味的restaurant 餐厅sunshine 阳光step 台阶amazing 令人惊奇的parachute 降落伞home town 家乡crowded 拥挤的somewhere 在某处tuk-tuk 小车wheel 车轮fresh 新鲜的abroad 在国外relative 亲戚relax 放松send 寄postcard 明信片tennis 网球court 球场waterfall 瀑布camp 营地interview 采访natural 自然的air conditioner 空调insect 昆虫warn 警告join 加入root 根pass 给communicate 交流danger 危险burn （使）烧毁destroy 摧毁pollution 污染fighter 奋斗者article 文章rubbish 圾noise 噪声without 没有reason 原因alive 活着的above 在……上面childhood 童年disappear 消失waste 浪费seem 似乎result 结果produce 生产gas气体leisure 休闲area 地方container 容器reception 接待处clerk 职员blind 瞎的explain 解释lead 带路exit 出口safety 安全describe 描述asleep 睡着的bark 吠叫loudly 大声地smell 闻到smoke 烟fire alarm 火警towel 毛巾dead 不运行的minute分钟fire engine 消防车against 反对mostly 主要地perfume maker 香水制造者sense 感觉官能useful 有用的taste 味觉close 关闭programme 节目skill 技术hearing 听力sight 视力deaf 聋的simple 简单的able 能够chance 机会sign languag 手语disability 缺陷wheelchair 轮椅left 左边opposite 在……对面cupboard 橱柜packet 小包装electricity 电fool 愚弄flow 流explanation 解释servant 仆人mankind 人类form 形式energy 能量bulb 电灯泡flat 公寓connect 与……相连接power station 发电厂battery 电池chemical 化学制品advice 忠告rice cooker 电饭煲pot 壶housewife 家庭主妇careful 小心的unplug 拔去microwave 微波炉heat 加热metal 金属kettle 水壶iron 熨move 移动screen 屏幕analogue television 模拟电视digital television 数字电视quality 质量cover 覆盖lock 锁上peephole 窥视孔test 测试lean 倾staff 职工customer 顾客properly 恰当地interesting 有趣mile 英里dull无聊的lively 活泼的hate 讨厌bored 无聊的knock 敲whole 整个slam 砰地关上break 使碎bite 咬ring 圈mess 肮脏din 吵闹声signal 信号typhoon 台风blow 吹tray hay 草narrator 旁白员present 礼物prize 奖赏sharp 锋利的boss 老trip 旅行continent 大陆parrot 鹦鹉skin 皮肤lizard 蜥蜴guide 向导cheerful 高兴地generous 大方的helpful 热心的successful 成功的patient 耐心的verse 诗tap 水龙头pour 涌入sink 水槽freeze 使冻结drop 掉下stream 小河reservoir 水库journey 旅行treatment 处理works 工厂pipe 管until 直到……为止sewage （下水道）污水pump 用泵抽出或压入valuable 宝贵的liquid 液体的ocean 海洋salty 咸的drinkable 可饮用的litre 升oil 油broken 破损的flush 冲洗shower 淋浴mint 铸币厂distill 蒸馏mix 使混合steam 蒸汽powder粉末ordinary普通的owner主人chart 图表process 过程chopstick 筷子dish 一道菜hostess 女主人spoon 勺smelly 难闻的separate 单独的several 几个sashimi 生鱼片raw 生的knife 刀fork 叉子roast 烤的popular 受欢迎的oolong tea 乌龙茶survey 民意调查bell 钟声biscuit 饼干steak 牛排waiter 侍者roller 旱冰鞋serve 服务speed 速度grape 葡萄paste 肉酱sauce酱nut坚果pepper 辣椒粉chilli 辣椒lemon 柠檬chocolate 巧克力mushroom 蘑菇prawn 对虾salad 色拉chop猪排habit习惯,questionnaire调查问卷"
+      var arr = [
+        { en: "apple", zh: "苹果" },
+        { en: "am", zh: "是" },
+        { en: "is", zh: "是" },
+        { en: "are", zh: "是" },
+        { en: "sb", zh: "我是sb" },
+        { en: "yyds", zh: "永远的神" },
+        { en: "center", zh: "中心" },
+        { en: "if", zh: "如果" },
+        { en: "alan walker", zh: "艾伦沃克，一位DJ" },
+        { en: "why", zh: "为什么！" },
+        { en: "enoch", zh: "就是我了！" },
+        { en: "bug", zh: "怎么可能有BUG！" }
+      ];
+
+      //搜索对应的值
+      let val1 = val.toLowerCase();
+      var a = arr.filter(function (_data) {
+        return _data.en == val1;
+      })
+
+      //判断是否查到单词
+      var c = a.length;
+      // console.log(c)
+      if (c == 0) {
+        var b = "没这个单词";
+      } else {
+        var b = a[0].zh;
+      }
+
+      //输出
+      document.getElementById('out').innerText = b;
+    }
+
+  </script>
+</body>
+
+</html>
