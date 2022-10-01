@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #686de0;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+      padding: 50px 20px;
+      text-align: center;
+      max-width: 100%;
+      width: 800px;
+    }
+
+    h3 {
+      margin: 0;
+      opacity: 0.5;
+      letter-spacing: 2px;
+    }
+
+    .joke {
+      font-size: 30px;
+      letter-spacing: 1px;
+      line-height: 40px;
+      margin: 50px auto;
+      max-width: 600px;
+    }
+
+    .btn {
+      background-color: #9f68e0;
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+      padding: 14px 40px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn:focus {
+      outline: 0;
+    }
+  </style>
+  <title>一个基于JavaScript的简易加法计算器</title>
+</head>
+
+<body>
+  <div class="container">
+    <form>
+      <h3>一个基于JavaScript的简易加法计算器</h3>
+
+      <div class="joke">
+        <input type="text" name="a" style="height:50px;width: 300px;" />
+        <input type="text" name="b" style="height:50px;width: 300px;" />
+      </div>
+      <input type="button" id="jokeBtn" class="btn" value="计算" onclick="out();">
+      <p id="c"></p>
+    </form>
+  </div>
+
+  <script>
+    function out() {
+      //读取值
+      let a = document.getElementsByName("a")[0].value;
+      let b = document.getElementsByName("b")[0].value;
+
+      var a1 = a;
+      var b1 = b;
+
+      //转换为数字
+      var a2 = Number(a1);
+      var b2 = Number(b1);
+      //获取长度
+      var a3 = a.length;
+      var b3 = b.length;
+      console.log("第一个输入的长度为：")
+      console.log(a3)
+      console.log("第二个输入的长度为：")
+      console.log(b3)
+      //垃圾嵌套ifelse语句
+      if (isNaN(a2)) {
+        var output = "请输入数字";
+      } else {
+        if (isNaN(b2)) {//以上判断是否为数字
+          var output = "请输入数字";
+        } else {
+          if (a3 >= 17) {
+            var output = "仅支持17位以下的计算";
+            console.log(a3)
+          } else {
+            if (b3 >= 17) {
+              var output = "仅支持17位以下的计算";//以上判断是否为17位以下
+            } else {
+              var output = a2 + b2;//最终计算
+              console.log("最终计算结果：")
+              console.log(output)
+            }
+          }
+
+        }
+      }
+      document.getElementById('c').innerText = output;//输出！
+    }
+  </script>
+</body>
+
+</html>
